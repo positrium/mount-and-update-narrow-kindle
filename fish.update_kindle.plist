@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <!-- label -->
+        <key>Label</key>
+        <string>fish.update_kindle</string>
+        <!-- script -->
+        <key>ProgramArguments</key>
+        <array>
+            <string>/usr/local/bin/fish</string>
+            <string>/PATH/TO/update_kindle.fish</string>
+        </array>
+
+        <!-- launchctl loadしたタイミングで実行するか -->
+        <key>RunAtLoad</key>
+        <true/>
+            <!-- インターバル指定(例:5秒毎) -->
+        <key>StartInterval</key>
+        <integer>5</integer>
+        <!-- ログを出さない場合は/dev/null -->
+        <key>StandardErrorPath</key>
+        <string>/dev/null</string>
+        <key>StandardOutPath</key>
+        <string>/dev/null</string>
+    </dict>
+</plist>
