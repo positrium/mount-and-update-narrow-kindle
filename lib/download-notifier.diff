@@ -1,0 +1,20 @@
+@@ -16,6 +16,7 @@
+ require_relative "narou/api"
+ require_relative "html"
+ require_relative "input"
++require "terminal-notifier"
+
+ #
+ # 小説サイトからのダウンロード
+@@ -979,6 +980,11 @@
+     max = subtitles.size
+     return if max == 0
+     @stream.puts "<bold><green>#{"ID:#{@id}　#{get_title}".escape} のDL開始</green></bold>".termcolor
++    TerminalNotifier.notify("#{"ID:#{@id}　#{get_title}".escape} のDL開始",
++            title: "updating narrow-kindle",
++            group: @id,
++            remove: @id)
++
+     save_least_one = false
+     subtitles.each_with_index do |subtitle_info, i|
+       index, subtitle, file_subtitle, chapter, subchapter =
