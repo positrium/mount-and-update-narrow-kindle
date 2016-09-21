@@ -1,0 +1,17 @@
+@@ -172,7 +164,16 @@
+       interval = Interval.new(@options["interval"])
+
+       update_log = $stdout.capture(quiet: false) do
++
++        max = update_target_list.count
+         sort_by_key(sort_key, update_target_list).each_with_index do |target, i|
++          # progress
++
++          TerminalNotifier.notify("progress .. #{i}/#{max} (#{(i/max.to_f*100).round(0)}%)",
++            title: "updating narrow-kindle",
++            group: Process.pid,
++            remove: Process.pid)
++
+           display_message = nil
+           data = Downloader.get_data_by_target(target)
+           if !data
