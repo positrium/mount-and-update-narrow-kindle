@@ -1,3 +1,11 @@
+@@ -9,6 +9,7 @@
+ require_relative "../downloader"
+ require_relative "../template"
+ require_relative "../novelconverter"
++require "terminal-notifier"
+
+ module Command
+   class Update < CommandBase
 @@ -172,7 +164,16 @@
        interval = Interval.new(@options["interval"])
 
